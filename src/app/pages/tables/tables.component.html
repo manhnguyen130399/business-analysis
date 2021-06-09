@@ -1,0 +1,36 @@
+
+<div *ngIf="mack.length>0" class=" content">
+  <span >Table :{{title}}</span>
+  <span style="float:right">Đơn vị tính : 10.000.000 VND</span>
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <div class="col">
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle>Select</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button ngbDropdownItem (click)="getKQKD()" >KQ-KD</button>
+                <button ngbDropdownItem (click)="getCDKT()">CD-KT</button>
+                <button ngbDropdownItem (click)="getLCTT()">LC-TT</button>
+                <button ngbDropdownItem (click)="get4m()">4M</button>
+                <button ngbDropdownItem (click)="getCanslim()">Canslim</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class=" card-body">
+          <div class="container background-header" [ngClass]="isCanslim?'background-red':is4m?'center':'' " >
+            <span [innerHTML]="html" ></span>
+            <div class="card center" *ngIf="total>0 && (isCanslim||is4m) " style="background-color: yellow;">
+              <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted" style="text-align: center; font-size: 20px;">Tổng điểm {{title}} của mã chứng khoán {{mack}}</h6>
+                <p class="card-text" style="text-align: center; font-size: 17px; color: red;">Tổng điểm : {{total | number}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
