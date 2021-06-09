@@ -88,7 +88,9 @@ export class TablesComponent implements OnInit {
     } else {
       this.businessService.getCanslim(this.mack).subscribe((res) => {
         this.html = res.html;
-        this.total = res.total
+        this.total = res.total;
+        console.log(this.total);
+
         this.isCanslim = true
         this.title = " Đánh giá doanh nghiệp theo phương pháp Canslim"
         this.is4m = false

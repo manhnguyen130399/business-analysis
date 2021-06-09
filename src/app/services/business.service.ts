@@ -10,7 +10,7 @@ import { Output } from '../models/Output';
 export class BusinessService {
 
   constructor(private readonly httpClient: HttpClient) { }
-  url = 'http://13.229.250.252:5001'
+  url = 'http://13.250.36.72:5001'
   private mack = new BehaviorSubject<string>("");
   currentMessage = this.mack.asObservable();
   changeMessage(message: string) { this.mack.next(message) }
