@@ -14,6 +14,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "qCKp");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
+
 
 
 
@@ -61,12 +63,22 @@ var BusinessService = /** @class */ (function () {
             .append('year', '2020')
             .append('quarter', '0')
             .append('symbol', mack);
-        return this.httpClient.get(this.url + "/api/4m", { params: params }).pipe();
+        return this.httpClient.get(this.url + "/api/4m", { params: params }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
     };
     BusinessService.prototype.getCanslim = function (mack) {
         var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]()
             .append('mack', mack);
-        return this.httpClient.get(this.url + "/api/canslim", { params: params }).pipe();
+        return this.httpClient.get(this.url + "/api/canslim", { params: params }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+    };
+    BusinessService.prototype.handleError = function (error) {
+        if (error.status === 0) {
+            alert('Không phân tích được mã chứng khoán này');
+        }
+        else {
+            alert('Không phân tích được mã chứng khoán này');
+        }
+        // Return an observable with a user-facing error message.
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])('Something bad happened; please try again later.');
     };
     BusinessService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"] }
@@ -7302,8 +7314,8 @@ var TablesComponent = /** @class */ (function () {
         }
         else {
             this.businessService.get4M(this.mack).subscribe(function (res) {
-                _this.html = res.html,
-                    _this.title = ' Đánh giá doanh nghiệp theo phương pháp 4M';
+                _this.html = res.html;
+                _this.title = ' Đánh giá doanh nghiệp theo phương pháp 4M';
                 _this.isCanslim = false;
                 _this.total = res.total;
                 _this.is4m = true;
@@ -7355,7 +7367,7 @@ var TablesComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"mack.length>0\" class=\" content\">\r\n  <span>Table :{{title}}</span>\r\n  <span style=\"float:right\">Đơn vị tính : 10.000.000 VND</span>\r\n  <div class=\" row\">\r\n    <div class=\" col-md-12\">\r\n      <div class=\" card\">\r\n        <div class=\" card-header\">\r\n          <div class=\"col\">\r\n            <div ngbDropdown class=\"d-inline-block\">\r\n              <button class=\"btn btn-primary\" id=\"dropdownBasic1\" ngbDropdownToggle>Select</button>\r\n              <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\">\r\n                <button ngbDropdownItem (click)=\"getKQKD()\">KQ-KD</button>\r\n                <button ngbDropdownItem (click)=\"getCDKT()\">CD-KT</button>\r\n                <button ngbDropdownItem (click)=\"getLCTT()\">LC-TT</button>\r\n                <button ngbDropdownItem (click)=\"get4m()\">4M</button>\r\n                <button ngbDropdownItem (click)=\"getCanslim()\">Canslim</button>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\" card-body\">\r\n          <div class=\"container background-header\" [ngClass]=\"isCanslim?'background-red':is4m?'center':'' \">\r\n            <span [innerHTML]=\"html\"></span>\r\n            <div class=\"card center\" *ngIf=\"total!=null && (isCanslim||is4m) \" style=\"background-color: yellow;\">\r\n              <div class=\"card-body\">\r\n                <h6 class=\"card-subtitle mb-2 text-muted\" style=\"text-align: center; font-size: 20px;\">Tổng điểm\r\n                  {{title}} của mã chứng khoán {{mack}}</h6>\r\n                <p class=\"card-text\" style=\"text-align: center; font-size: 17px; color: red;\">Tổng điểm : {{\r\n                  total|number\r\n                  }}\r\n                </p>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"mack.length>0\" class=\" content\">\r\n  <span>Table :{{title}}</span>\r\n  <span style=\"float:right\">Đơn vị tính : 10.000.000 VND</span>\r\n  <div class=\" row\">\r\n    <div class=\" col-md-12\">\r\n      <div class=\" card\">\r\n        <div class=\" card-header\">\r\n          <div class=\"col\">\r\n            <div ngbDropdown class=\"d-inline-block\">\r\n              <button class=\"btn btn-primary\" id=\"dropdownBasic1\" ngbDropdownToggle>Select</button>\r\n              <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\">\r\n                <button ngbDropdownItem (click)=\"getKQKD()\">KQ-KD</button>\r\n                <button ngbDropdownItem (click)=\"getCDKT()\">CD-KT</button>\r\n                <button ngbDropdownItem (click)=\"getLCTT()\">LC-TT</button>\r\n                <button ngbDropdownItem (click)=\"get4m()\">4M</button>\r\n                <button ngbDropdownItem (click)=\"getCanslim()\">Canslim</button>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\" card-body\">\r\n          <div class=\"container background-header\" [ngClass]=\"isCanslim?'background-red':is4m?'center':'' \">\r\n            <span [innerHTML]=\"html\"></span>\r\n            <div class=\"card center\" *ngIf=\"total!=null && (isCanslim||is4m) \" style=\"background-color: yellow;\">\r\n              <div class=\"card-body\">\r\n                <h6 class=\"card-subtitle mb-2 text-muted\" style=\"text-align: center; font-size: 20px;\">Tổng điểm\r\n                  {{title}} của mã chứng khoán {{mack}}</h6>\r\n                <p *ngIf=\"total>=0\" class=\"card-text\" style=\"text-align: center; font-size: 17px; color: red;\">Tổng điểm\r\n                  : {{\r\n                  total|number\r\n                  }}\r\n                </p>\r\n                <p *ngIf=\"total < 0\" class=\"card-text\" style=\"text-align: center; font-size: 17px; color: red;\">Điểm nhỏ\r\n                  hơn 0. Cẩn thận với mã chứng khoán này\r\n                </p>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>");
 
 /***/ }),
 

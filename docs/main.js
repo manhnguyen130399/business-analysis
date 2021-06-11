@@ -277,7 +277,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<footer class=\" footer\">\n  <div class=\" container-fluid\">\n    <ul class=\" nav\">\n      <li class=\" nav-item\">\n        <a class=\" nav-link\" href=\"https://www.creative-tim.com?ref=bda-footer\">\n          Creative Manh Nguyen And Hang To\n        </a>\n      </li>\n    </ul>\n    <div class=\" copyright\">\n      &copy; {{ test | date: \"yyyy\" }} made with\n      <i class=\" tim-icons icon-heart-2\"> </i> by\n      <a href=\"https://www.creative-tim.com?ref=bda-footer\" target=\"_blank\"> Manh Nguyen && Hang To </a>\n      for a better web.\n    </div>\n  </div>\n</footer>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<footer class=\" footer\">\n  <div class=\" container-fluid\">\n    <ul class=\" nav\">\n      <li class=\" nav-item\">\n        <a class=\" nav-link\" href=\"https://www.creative-tim.com?ref=bda-footer\">\n          Creative Manh Nguyen And Hang To And Phi\n        </a>\n      </li>\n    </ul>\n    <div class=\" copyright\">\n      &copy; {{ test | date: \"yyyy\" }} made with\n      <i class=\" tim-icons icon-heart-2\"> </i> by\n      <a href=\"https://www.creative-tim.com?ref=bda-footer\" target=\"_blank\"> Manh Nguyen && Hang To && Phi </a>\n      for a better web.\n    </div>\n  </div>\n</footer>");
 
 /***/ }),
 

@@ -72,11 +72,13 @@ export class TablesComponent implements OnInit {
       this.router.navigate(['dashboard'])
     } else {
       this.businessService.get4M(this.mack).subscribe((res) => {
-        this.html = res.html,
-          this.title = ' Đánh giá doanh nghiệp theo phương pháp 4M'
+        this.html = res.html
+        this.title = ' Đánh giá doanh nghiệp theo phương pháp 4M'
         this.isCanslim = false
         this.total = res.total
         this.is4m = true
+
+
       })
     }
 
@@ -90,7 +92,6 @@ export class TablesComponent implements OnInit {
         this.html = res.html;
         this.total = res.total;
         console.log(this.total);
-
         this.isCanslim = true
         this.title = " Đánh giá doanh nghiệp theo phương pháp Canslim"
         this.is4m = false
