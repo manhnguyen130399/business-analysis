@@ -17,6 +17,7 @@ export class TablesComponent implements OnInit {
   title: string;
   isCanslim: boolean = false;
   is4m: boolean = false;
+  df4m: string;
   total: number;
   ngOnInit() {
     this.businessService.currentMessage.subscribe((res) => {
@@ -72,7 +73,8 @@ export class TablesComponent implements OnInit {
       this.router.navigate(['dashboard'])
     } else {
       this.businessService.get4M(this.mack).subscribe((res) => {
-        this.html = res.html
+        this.html = res.html;
+        this.df4m = res.df4m;
         this.title = ' Đánh giá doanh nghiệp theo phương pháp 4M'
         this.isCanslim = false
         this.total = res.total

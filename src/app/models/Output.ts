@@ -1,4 +1,5 @@
-export interface Output{
-    html:string,
-    total:number
+export interface Output {
+    html: string,
+    total: number,
+    df4m: string
 }
