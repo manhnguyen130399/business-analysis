@@ -10,7 +10,7 @@ declare interface RouteInfo {
 export const ROUTES: RouteInfo[] = [
   {
     path: "/dashboard",
-    title: "Dashboard",
+    title: "information",
     rtlTitle: "لوحة القيادة",
     icon: "icon-chart-pie-36",
     class: ""
@@ -32,7 +32,7 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
   menuItems: any[];
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);

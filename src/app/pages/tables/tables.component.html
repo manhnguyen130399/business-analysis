@@ -14,7 +14,7 @@
                 <button ngbDropdownItem (click)="getCDKT()">CD-KT</button>
                 <button ngbDropdownItem (click)="getLCTT()">LC-TT</button>
                 <button ngbDropdownItem (click)="get4m()">4M</button>
-                <button ngbDropdownItem (click)="getCanslim()">Canslim</button>
+                <button ngbDropdownItem (click)="getCanslim()">CANSLIM</button>
               </div>
             </div>
           </div>
@@ -24,16 +24,11 @@
           <div class="row background-header" *ngIf="is4m">
             <h1 class="center">Data 4M</h1>
             <span class="df4m" [innerHTML]="df4m"></span>
-            <br>
-            <br>
-            <br>
-            <h1 class="center" *ngIf="is4m">4M</h1>
+            <h1 class="center" style="padding-bottom: 0px;" *ngIf="is4m">4M</h1>
           </div>
 
-          <div class="container background-header" [ngClass]="isCanslim?'background-red':is4m?'center':'' ">
-
+          <div class="container background-header padd" [ngClass]="isCanslim?'background-red':is4m?'center':'' ">
             <div class="row">
-
               <span class="center" [innerHTML]="html"></span>
               <br>
             </div>

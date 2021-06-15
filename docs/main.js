@@ -745,7 +745,7 @@ __webpack_require__.r(__webpack_exports__);
 var ROUTES = [
     {
         path: "/dashboard",
-        title: "Dashboard",
+        title: "information",
         rtlTitle: "لوحة القيادة",
         icon: "icon-chart-pie-36",
         class: ""
