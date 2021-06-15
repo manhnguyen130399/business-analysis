@@ -22,15 +22,17 @@
 
         <div class=" card-body">
           <div class="row background-header" *ngIf="is4m">
-            <h1 class="center">Chỉ số doanh nghiệp</h1>
+            <h1 class="center">Data 4M</h1>
             <span class="df4m" [innerHTML]="df4m"></span>
             <br>
+            <h1 class="center" *ngIf="is4m">4M</h1>
           </div>
+
           <div class="container background-header" [ngClass]="isCanslim?'background-red':is4m?'center':'' ">
 
             <div class="row">
-              <h1 *ngIf="is4m">Phân tích doanh nghiệp</h1>
-              <span [innerHTML]="html"></span>
+
+              <span class="center" [innerHTML]="html"></span>
               <br>
             </div>
             <div class="row">
